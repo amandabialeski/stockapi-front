@@ -13,35 +13,33 @@ export default function ListarPedidos() {
   const [pedidoSelecionado, setPedidoSelecionado] = useState(null);
 
   useEffect(() => {
+    async function carregarDados() {
+      try {
+        const [resPedidos, resClientes, resProdutos, resItens] = await Promise.all([
+          fetch("https://stock.dev.vilhena.ifro.edu.br/api/pedidos"),
+          fetch("https://stock.dev.vilhena.ifro.edu.br/api/clientes"),
+          fetch("https://stock.dev.vilhena.ifro.edu.br/api/produtos"),
+          fetch("https://stock.dev.vilhena.ifro.edu.br/api/itens_pedido"),
+        ]);
+
+        const dadosPedidos = await resPedidos.json();
+        const dadosClientes = await resClientes.json();
+        const dadosProdutos = await resProdutos.json();
+        const dadosItens = await resItens.json();
+
+        setPedidos(Array.isArray(dadosPedidos) ? dadosPedidos : []);
+        setClientes(Array.isArray(dadosClientes) ? dadosClientes : []);
+        setProdutos(Array.isArray(dadosProdutos) ? dadosProdutos : []);
+        setItens(Array.isArray(dadosItens) ? dadosItens : []);
+      } catch (err) {
+        setErro("Falha ao carregar dados da API.");
+      } finally {
+        setCarregando(false);
+      }
+    }
+
     carregarDados();
   }, []);
-
-  async function carregarDados() {
-    setCarregando(true);
-    setErro("");
-    try {
-      const [resPedidos, resClientes, resProdutos, resItens] = await Promise.all([
-        fetch("https://stock.dev.vilhena.ifro.edu.br/api/pedidos"),
-        fetch("https://stock.dev.vilhena.ifro.edu.br/api/clientes"),
-        fetch("https://stock.dev.vilhena.ifro.edu.br/api/produtos"),
-        fetch("https://stock.dev.vilhena.ifro.edu.br/api/itens_pedido"),
-      ]);
-
-      const dadosPedidos = await resPedidos.json();
-      const dadosClientes = await resClientes.json();
-      const dadosProdutos = await resProdutos.json();
-      const dadosItens = await resItens.json();
-
-      setPedidos(Array.isArray(dadosPedidos) ? dadosPedidos : []);
-      setClientes(Array.isArray(dadosClientes) ? dadosClientes : []);
-      setProdutos(Array.isArray(dadosProdutos) ? dadosProdutos : []);
-      setItens(Array.isArray(dadosItens) ? dadosItens : []);
-    } catch (err) {
-      setErro("Falha ao carregar dados da API.");
-    } finally {
-      setCarregando(false);
-    }
-  }
 
   function obterNomeCliente(clienteId) {
     const cliente = clientes.find((c) => c.id === clienteId);
