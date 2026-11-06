@@ -10,7 +10,7 @@ export default function Home() {
         </p>
 
         <div className="alerta alerta-info">
-          <strong>Integrantes da Dupla:</strong> Amanda e JC
+          <strong>Integrantes da Dupla:</strong> Amanda Bialeski e Gustavo Blachtekak
         </div>
       </div>
 
