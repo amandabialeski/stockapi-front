@@ -149,7 +149,7 @@ export default function CriarPedido() {
   if (carregando) {
     return (
       <div className="card">
-        <p>Carregando dados para criação do pedido...</p>
+        <p className="texto-vazio">Carregando dados para criação do pedido...</p>
       </div>
     );
   }
@@ -163,7 +163,7 @@ export default function CriarPedido() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
         {sucesso && <div className="alerta alerta-sucesso">{sucesso}</div>}
 
-        <div className="grupo-campo" style={{ marginBottom: "20px" }}>
+        <div className="grupo-campo">
           <label className="rotulo">Cliente *</label>
           <select
             className="campo"
@@ -179,13 +179,11 @@ export default function CriarPedido() {
           </select>
         </div>
 
-        <div className="card" style={{ backgroundColor: "#fafafa" }}>
-          <h2 style={{ fontSize: "18px", marginBottom: "12px", color: "#1f2937" }}>
-            Adicionar Produto ao Pedido
-          </h2>
+        <div className="caixa">
+          <h2 className="titulo-secao">Adicionar Produto ao Pedido</h2>
 
           <div className="linha-formulario">
-            <div className="grupo-campo" style={{ flex: 3 }}>
+            <div className="grupo-campo">
               <label className="rotulo">Produto</label>
               <select
                 className="campo"
@@ -201,7 +199,7 @@ export default function CriarPedido() {
               </select>
             </div>
 
-            <div className="grupo-campo" style={{ flex: 1 }}>
+            <div className="grupo-campo">
               <label className="rotulo">Quantidade</label>
               <input
                 type="number"
@@ -218,16 +216,12 @@ export default function CriarPedido() {
           </div>
         </div>
 
-        <div style={{ marginTop: "20px" }}>
-          <h2 style={{ fontSize: "18px", marginBottom: "8px", color: "#1f2937" }}>
-            Itens do Pedido ({itens.length})
-          </h2>
+        <h2 className="titulo-secao">Itens do Pedido ({itens.length})</h2>
 
-          {itens.length === 0 ? (
-            <p style={{ color: "#6b7280", fontStyle: "italic" }}>
-              Nenhum produto adicionado ainda.
-            </p>
-          ) : (
+        {itens.length === 0 ? (
+          <p className="texto-vazio">Nenhum produto adicionado ainda.</p>
+        ) : (
+          <div>
             <div className="tabela-responsiva">
               <table className="tabela">
                 <thead>
@@ -249,7 +243,7 @@ export default function CriarPedido() {
                       <td>
                         <button
                           type="button"
-                          className="botao botao-perigo"
+                          className="botao botao-perigo botao-pequeno"
                           onClick={() => removerItem(index)}
                         >
                           Remover
@@ -259,15 +253,13 @@ export default function CriarPedido() {
                   ))}
                 </tbody>
               </table>
-
-              <div style={{ marginTop: "12px", textAlign: "right", fontSize: "18px", fontWeight: "bold" }}>
-                Total: R$ {totalPedido.toFixed(2)}
-              </div>
             </div>
-          )}
-        </div>
 
-        <div style={{ marginTop: "24px", display: "flex", gap: "12px" }}>
+            <p className="total">Total: R$ {totalPedido.toFixed(2)}</p>
+          </div>
+        )}
+
+        <div className="acoes">
           <button
             type="button"
             className="botao botao-sucesso"

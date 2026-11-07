@@ -74,7 +74,7 @@ export default function ListarPedidos() {
   return (
     <div>
       <div className="card">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+        <div className="topo-pagina">
           <div>
             <h1 className="titulo-pagina">Listar Pedidos</h1>
             <p className="subtitulo-pagina">Visualização de pedidos e seus respectivos itens.</p>
@@ -87,9 +87,9 @@ export default function ListarPedidos() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p>Carregando pedidos da API...</p>
+          <p className="texto-vazio">Carregando pedidos da API...</p>
         ) : pedidos.length === 0 ? (
-          <p>Nenhum pedido encontrado.</p>
+          <p className="texto-vazio">Nenhum pedido encontrado.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
@@ -139,8 +139,7 @@ export default function ListarPedidos() {
                       <td>
                         {itensPedido.length > 0 && (
                           <button
-                            className="botao botao-secundario"
-                            style={{ padding: "4px 8px", fontSize: "12px" }}
+                            className="botao botao-secundario botao-pequeno"
                             onClick={() => alternarDetalhes(pedido.id)}
                           >
                             {estaAberto ? "Ocultar" : "Ver Itens"}

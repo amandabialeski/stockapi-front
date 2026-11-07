@@ -25,15 +25,12 @@ export default function Header() {
           {aberto ? "✕ Fechar" : "☰ Menu"}
         </button>
 
-        <nav className={`navegacao ${aberto ? "aberto" : ""}`}>
+        <nav className={aberto ? "navegacao aberto" : "navegacao"}>
           <Link href="/" className="link-nav" onClick={fecharMenu}>
             Início
           </Link>
-          <Link href="/pedidos" className="link-nav" onClick={fecharMenu}>
-            Pedidos
-          </Link>
-          <Link href="/pedidos/novo" className="link-nav" onClick={fecharMenu}>
-            Criar Pedido
+          <Link href="/categorias" className="link-nav" onClick={fecharMenu}>
+            Categorias
           </Link>
           <Link href="/produtos" className="link-nav" onClick={fecharMenu}>
             Produtos
@@ -41,8 +38,11 @@ export default function Header() {
           <Link href="/clientes" className="link-nav" onClick={fecharMenu}>
             Clientes
           </Link>
-          <Link href="/categorias" className="link-nav" onClick={fecharMenu}>
-            Categorias
+          <Link href="/pedidos" className="link-nav" onClick={fecharMenu}>
+            Pedidos
+          </Link>
+          <Link href="/pedidos/novo" className="link-nav" onClick={fecharMenu}>
+            Criar Pedido
           </Link>
         </nav>
       </div>
