@@ -32,9 +32,9 @@ export default function Categorias() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p className="texto-vazio">Carregando categorias...</p>
+          <p>Carregando categorias...</p>
         ) : categorias.length === 0 ? (
-          <p className="texto-vazio">Nenhuma categoria cadastrada.</p>
+          <p>Nenhuma categoria cadastrada.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">

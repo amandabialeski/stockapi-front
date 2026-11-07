@@ -45,9 +45,9 @@ export default function Produtos() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p className="texto-vazio">Carregando produtos...</p>
+          <p>Carregando produtos...</p>
         ) : produtos.length === 0 ? (
-          <p className="texto-vazio">Nenhum produto cadastrado.</p>
+          <p>Nenhum produto cadastrado.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
@@ -55,9 +55,9 @@ export default function Produtos() {
                 <tr>
                   <th>ID</th>
                   <th>Nome</th>
-                  <th>DescriÃ§Ã£o</th>
+                  <th>Descrição</th>
                   <th>Categoria</th>
-                  <th>PreÃ§o</th>
+                  <th>Preço</th>
                   <th>Estoque</th>
                 </tr>
               </thead>

@@ -32,9 +32,9 @@ export default function Clientes() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p className="texto-vazio">Carregando clientes...</p>
+          <p>Carregando clientes...</p>
         ) : clientes.length === 0 ? (
-          <p className="texto-vazio">Nenhum cliente cadastrado.</p>
+          <p>Nenhum cliente cadastrado.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
