@@ -32,9 +32,9 @@ export default function Categorias() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p>Carregando categorias...</p>
+          <p className="texto-vazio">Carregando categorias...</p>
         ) : categorias.length === 0 ? (
-          <p>Nenhuma categoria cadastrada.</p>
+          <p className="texto-vazio">Nenhuma categoria cadastrada.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
@@ -47,8 +47,8 @@ export default function Categorias() {
               <tbody>
                 {categorias.map((categoria) => (
                   <tr key={categoria.id}>
-                    <td>#{categoria.id}</td>
-                    <td><strong>{categoria.nome}</strong></td>
+                    <td data-label="ID">#{categoria.id}</td>
+                    <td data-label="Nome"><strong>{categoria.nome}</strong></td>
                   </tr>
                 ))}
               </tbody>

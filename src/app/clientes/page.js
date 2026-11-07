@@ -32,9 +32,9 @@ export default function Clientes() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p>Carregando clientes...</p>
+          <p className="texto-vazio">Carregando clientes...</p>
         ) : clientes.length === 0 ? (
-          <p>Nenhum cliente cadastrado.</p>
+          <p className="texto-vazio">Nenhum cliente cadastrado.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
@@ -49,10 +49,10 @@ export default function Clientes() {
               <tbody>
                 {clientes.map((cliente) => (
                   <tr key={cliente.id}>
-                    <td>#{cliente.id}</td>
-                    <td><strong>{cliente.nome}</strong></td>
-                    <td>{cliente.email}</td>
-                    <td>{cliente.telefone || "-"}</td>
+                    <td data-label="ID">#{cliente.id}</td>
+                    <td data-label="Nome"><strong>{cliente.nome}</strong></td>
+                    <td data-label="E-mail">{cliente.email}</td>
+                    <td data-label="Telefone">{cliente.telefone || "-"}</td>
                   </tr>
                 ))}
               </tbody>

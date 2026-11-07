@@ -10,7 +10,7 @@ export default function Home() {
 
       <div className="card">
         <h2 className="titulo-secao">Integrantes da Dupla</h2>
-        <div className="grid-cards">
+        <div className="grid-dupla">
           <div className="integrante">Amanda Bialeski</div>
           <div className="integrante">Gustavo Blachtekak</div>
         </div>

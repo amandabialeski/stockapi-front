@@ -19,10 +19,17 @@ a {
   color: inherit;
 }
 
+button,
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+}
+
 .cabecalho {
   background-color: #1e3a8a;
   color: #ffffff;
-  padding: 14px 20px;
+  padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -39,7 +46,7 @@ a {
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -55,7 +62,7 @@ a {
 
 .link-nav {
   color: #dbeafe;
-  padding: 8px 14px;
+  padding: 8px 10px;
   border-radius: 8px;
   font-size: 15px;
 }
@@ -101,8 +108,12 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 20px;
+}
+
+.topo-pagina .subtitulo-pagina {
+  margin-bottom: 0;
 }
 
 .titulo-pagina {
@@ -123,9 +134,15 @@ a {
 
 .grid-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.grid-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .integrante {
@@ -163,9 +180,9 @@ a {
 
 .tabela-responsiva {
   width: 100%;
-  overflow-x: auto;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
+  overflow-x: auto;
 }
 
 .tabela {
@@ -190,6 +207,10 @@ a {
   background-color: #f8fafc;
 }
 
+.preco {
+  white-space: nowrap;
+}
+
 .caixa {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -210,7 +231,8 @@ a {
 }
 
 .campo {
-  padding: 10px;
+  height: 42px;
+  padding: 0 10px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 15px;
@@ -223,13 +245,14 @@ a {
 }
 
 .linha-formulario {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 140px 170px;
   gap: 12px;
-  align-items: flex-end;
+  align-items: end;
 }
 
-.linha-formulario .grupo-campo {
-  flex: 1;
+.linha-formulario .botao {
+  height: 42px;
 }
 
 .botao {
@@ -348,8 +371,10 @@ a {
 }
 
 .lista-itens {
-  margin-top: 8px;
-  padding-left: 20px;
+  list-style: none;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #64748b;
 }
 
 .rodape {
@@ -379,27 +404,94 @@ a {
 
   .link-nav {
     background-color: #1e40af;
+    padding: 12px 14px;
   }
 
-  .banner h1 {
-    font-size: 26px;
-  }
-
-  .titulo-pagina {
-    font-size: 22px;
+  .container {
+    margin: 20px auto;
   }
 
   .card {
     padding: 16px;
   }
 
-  .linha-formulario {
+  .banner {
+    padding: 28px 16px;
+  }
+
+  .banner h1 {
+    font-size: 24px;
+  }
+
+  .titulo-pagina {
+    font-size: 22px;
+  }
+
+  .topo-pagina {
     flex-direction: column;
     align-items: stretch;
   }
 
+  .grid-cards,
+  .grid-dupla,
+  .linha-formulario {
+    grid-template-columns: 1fr;
+  }
+
   .acoes {
     flex-direction: column;
+  }
+
+  .botao {
+    padding: 12px 18px;
+  }
+
+  .botao-pequeno {
+    padding: 6px 10px;
+  }
+
+  .tabela-responsiva {
+    border: none;
+  }
+
+  .tabela thead {
+    display: none;
+  }
+
+  .tabela tr {
+    display: block;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+
+  .tabela td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    text-align: right;
+  }
+
+  .tabela td:last-child {
+    border-bottom: none;
+  }
+
+  .tabela td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #1e3a8a;
+    text-align: left;
+  }
+
+  .total {
+    text-align: center;
+  }
+
+  .rodape {
+    font-size: 13px;
   }
 }
 
@@ -410,6 +502,6 @@ a {
 
   .navegacao {
     display: flex;
-    gap: 6px;
+    gap: 4px;
   }
 }

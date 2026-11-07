@@ -236,11 +236,11 @@ export default function CriarPedido() {
                 <tbody>
                   {itens.map((item, index) => (
                     <tr key={index}>
-                      <td>{item.nome}</td>
-                      <td>R$ {item.preco.toFixed(2)}</td>
-                      <td>{item.quantidade}</td>
-                      <td>R$ {item.subtotal.toFixed(2)}</td>
-                      <td>
+                      <td data-label="Produto">{item.nome}</td>
+                      <td data-label="Preço Unitário" className="preco">R$ {item.preco.toFixed(2)}</td>
+                      <td data-label="Quantidade">{item.quantidade}</td>
+                      <td data-label="Subtotal" className="preco">R$ {item.subtotal.toFixed(2)}</td>
+                      <td data-label="Ação">
                         <button
                           type="button"
                           className="botao botao-perigo botao-pequeno"

@@ -110,15 +110,15 @@ export default function ListarPedidos() {
 
                   return (
                     <tr key={pedido.id}>
-                      <td>#{pedido.id}</td>
-                      <td>{obterNomeCliente(pedido.cliente_id)}</td>
-                      <td>{formatarData(pedido.data_pedido)}</td>
-                      <td>
+                      <td data-label="ID">#{pedido.id}</td>
+                      <td data-label="Cliente">{obterNomeCliente(pedido.cliente_id)}</td>
+                      <td data-label="Data">{formatarData(pedido.data_pedido)}</td>
+                      <td data-label="Status">
                         <span className={`badge badge-${pedido.status}`}>
                           {pedido.status}
                         </span>
                       </td>
-                      <td>
+                      <td data-label="Itens">
                         {itensPedido.length === 0 ? (
                           <span>Sem itens</span>
                         ) : (
@@ -136,14 +136,16 @@ export default function ListarPedidos() {
                           </div>
                         )}
                       </td>
-                      <td>
-                        {itensPedido.length > 0 && (
+                      <td data-label="Ações">
+                        {itensPedido.length > 0 ? (
                           <button
                             className="botao botao-secundario botao-pequeno"
                             onClick={() => alternarDetalhes(pedido.id)}
                           >
                             {estaAberto ? "Ocultar" : "Ver Itens"}
                           </button>
+                        ) : (
+                          "-"
                         )}
                       </td>
                     </tr>

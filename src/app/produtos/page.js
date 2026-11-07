@@ -45,9 +45,9 @@ export default function Produtos() {
         {erro && <div className="alerta alerta-erro">{erro}</div>}
 
         {carregando ? (
-          <p>Carregando produtos...</p>
+          <p className="texto-vazio">Carregando produtos...</p>
         ) : produtos.length === 0 ? (
-          <p>Nenhum produto cadastrado.</p>
+          <p className="texto-vazio">Nenhum produto cadastrado.</p>
         ) : (
           <div className="tabela-responsiva">
             <table className="tabela">
@@ -64,12 +64,12 @@ export default function Produtos() {
               <tbody>
                 {produtos.map((produto) => (
                   <tr key={produto.id}>
-                    <td>#{produto.id}</td>
-                    <td><strong>{produto.nome}</strong></td>
-                    <td>{produto.descricao || "-"}</td>
-                    <td>{obterNomeCategoria(produto.categoria_id)}</td>
-                    <td>R$ {Number(produto.preco).toFixed(2)}</td>
-                    <td>{produto.quantidade_estoque} un</td>
+                    <td data-label="ID">#{produto.id}</td>
+                    <td data-label="Nome"><strong>{produto.nome}</strong></td>
+                    <td data-label="Descrição">{produto.descricao || "-"}</td>
+                    <td data-label="Categoria">{obterNomeCategoria(produto.categoria_id)}</td>
+                    <td data-label="Preço" className="preco">R$ {Number(produto.preco).toFixed(2)}</td>
+                    <td data-label="Estoque">{produto.quantidade_estoque} un</td>
                   </tr>
                 ))}
               </tbody>
